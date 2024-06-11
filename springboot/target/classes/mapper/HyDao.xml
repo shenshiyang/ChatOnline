@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.HyDao">
+  <resultMap id="BaseResultMap" type="com.example.entity.Hy">
+    <!--@mbg.generated-->
+    <!--@Table hy-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="hy_user_id" jdbcType="INTEGER" property="hyUserId" />
+    <result column="nr" jdbcType="VARCHAR" property="nr" />
+    <result column="zt" jdbcType="CHAR" property="zt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, hy_user_id, nr, zt
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from hy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from hy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.entity.Hy" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hy (user_id, hy_user_id, nr,
+      zt)
+    values (#{userId,jdbcType=INTEGER}, #{hyUserId,jdbcType=INTEGER}, #{nr,jdbcType=VARCHAR},
+      #{zt,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.entity.Hy" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="hyUserId != null">
+        hy_user_id,
+      </if>
+      <if test="nr != null and nr != ''">
+        nr,
+      </if>
+      <if test="zt != null and zt != ''">
+        zt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="hyUserId != null">
+        #{hyUserId,jdbcType=INTEGER},
+      </if>
+      <if test="nr != null and nr != ''">
+        #{nr,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null and zt != ''">
+        #{zt,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.entity.Hy">
+    <!--@mbg.generated-->
+    update hy
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="hyUserId != null">
+        hy_user_id = #{hyUserId,jdbcType=INTEGER},
+      </if>
+      <if test="nr != null and nr != ''">
+        nr = #{nr,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null and zt != ''">
+        zt = #{zt,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.entity.Hy">
+    <!--@mbg.generated-->
+    update hy
+    set user_id = #{userId,jdbcType=INTEGER},
+      hy_user_id = #{hyUserId,jdbcType=INTEGER},
+      nr = #{nr,jdbcType=VARCHAR},
+      zt = #{zt,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update hy
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="user_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.userId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="hy_user_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.hyUserId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="nr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.nr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="zt = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.zt,jdbcType=CHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update hy
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="user_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.userId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="hy_user_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.hyUserId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.hyUserId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="nr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.nr != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.nr,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="zt = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.zt != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.zt,jdbcType=CHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hy
+    (user_id, hy_user_id, nr, zt)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.userId,jdbcType=INTEGER}, #{item.hyUserId,jdbcType=INTEGER}, #{item.nr,jdbcType=VARCHAR},
+        #{item.zt,jdbcType=CHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.example.entity.Hy" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      user_id,
+      hy_user_id,
+      nr,
+      zt,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      #{userId,jdbcType=INTEGER},
+      #{hyUserId,jdbcType=INTEGER},
+      #{nr,jdbcType=VARCHAR},
+      #{zt,jdbcType=CHAR},
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      user_id = #{userId,jdbcType=INTEGER},
+      hy_user_id = #{hyUserId,jdbcType=INTEGER},
+      nr = #{nr,jdbcType=VARCHAR},
+      zt = #{zt,jdbcType=CHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.example.entity.Hy" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="hyUserId != null">
+        hy_user_id,
+      </if>
+      <if test="nr != null and nr != ''">
+        nr,
+      </if>
+      <if test="zt != null and zt != ''">
+        zt,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="hyUserId != null">
+        #{hyUserId,jdbcType=INTEGER},
+      </if>
+      <if test="nr != null and nr != ''">
+        #{nr,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null and zt != ''">
+        #{zt,jdbcType=CHAR},
+      </if>
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="hyUserId != null">
+        hy_user_id = #{hyUserId,jdbcType=INTEGER},
+      </if>
+      <if test="nr != null and nr != ''">
+        nr = #{nr,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null and zt != ''">
+        zt = #{zt,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectHyyzList" resultType="com.example.HyyzVo">
+      select hy.*,u.id as userId,u.name as userName,u.avatar as userAvatar from hy join user u on hy.user_id = u.id
+      where hy_user_id = #{userId} order by zt
+  </select>
+
+  <select id="selectHyList" resultType="com.example.HyyzVo">
+    select hy.*,u.role,u.id as userId,u.name as userName,u.avatar as userAvatar from hy join user u on hy.user_id = u.id
+    where hy_user_id = #{userId} and zt = '1'
+    union all
+    select hy.*,u.role,u.id as userId,u.name as userName,u.avatar as userAvatar from hy join user u on hy.hy_user_id = u.id
+    where user_id = #{userId} and zt = '1'
+  </select>
+
+  <select id="isHy" resultType="int">
+    select count(id) from hy
+    where (user_id = #{userId} or hy_user_id = #{userId}) and (user_id = #{hyUserId} or hy_user_id = #{hyUserId})
+    and zt in ('0','1')
+  </select>
+</mapper>

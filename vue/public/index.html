@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>logo.png">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <!-- 引入全局样式 -->
+  <link rel="stylesheet" href="<%= BASE_URL %>global.css">
+  <link rel="stylesheet" href="<%= BASE_URL %>main.css">
+</head>
+<body>
+<noscript>
+  <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="app">
+  <div class="container">
+    <div class="navbar">
+      <span class="title">在线聊天系统</span>
+      <img src="<%= BASE_URL %>profile.jpg" alt="Profile">
+    </div>
+    <div class="main">
+      <div class="sidebar">
+        <h2>菜单</h2>
+        <a href="#">系统首页</a>
+        <a href="#">聊天交流</a>
+        <a href="#">好友管理</a>
+        <a href="#">用户设置</a>
+      </div>
+      <div class="content">
+        <h1>系统公告</h1>
+        <p>功能更新公告...</p>
+        <p>新增聊天表情功能...</p>
+        <!-- 其他内容 -->
+      </div>
+    </div>
+    <div class="footer">
+      <p>在线聊天系统 &copy; 2024</p>
+    </div>
+  </div>
+</div>
+<!-- built files will be auto injected -->
+</body>
+</html>
