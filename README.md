@@ -73,31 +73,31 @@ ChatOnline 是一个在线聊天系统，采用前后端分离的架构，前端
 
 ### 登录界面
 
-![登录界面](https://github.com/shenshiyang/ChatOnline/blob/master/screenshots/login.png)
+![登录界面](https://github.com/shenshiyang/ChatOnline/blob/master/login.png)
 
 ### 注册界面
 
-![注册界面](https://github.com/shenshiyang/ChatOnline/blob/master/screenshots/register.png)
+![注册界面](https://github.com/shenshiyang/ChatOnline/blob/master/register.png)
 
 ### 好友管理
 
-![好友管理](https://github.com/shenshiyang/ChatOnline/blob/master/screenshots/friend-management.png)
+![好友管理](https://github.com/shenshiyang/ChatOnline/blob/master/friend-management.png)
 
 ### 单聊界面
 
-![单聊界面](https://github.com/shenshiyang/ChatOnline/blob/master/screenshots/single-chat.png)
+![单聊界面](https://github.com/shenshiyang/ChatOnline/blob/master/single-chat.png)
 
 ### 群聊界面
 
-![群聊界面](https://github.com/shenshiyang/ChatOnline/blob/master/screenshots/group-chat.png)
+![群聊界面](https://github.com/shenshiyang/ChatOnline/blob/master/group-chat.png)
 
 ### 文件上传
 
-![文件上传](https://github.com/shenshiyang/ChatOnline/blob/master/screenshots/file-upload.png)
+![文件上传](https://github.com/shenshiyang/ChatOnline/blob/master/file-upload.png)
 
 ### 下载聊天记录
 
-![下载聊天记录](https://github.com/shenshiyang/ChatOnline/blob/master/screenshots/download-history.png)
+![下载聊天记录](https://github.com/shenshiyang/ChatOnline/blob/master/download-history.png)
 
 ## 开发者
 
